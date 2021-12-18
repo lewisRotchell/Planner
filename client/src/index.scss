@@ -1,0 +1,170 @@
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+li {
+  list-style-type: none;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// End of reset
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&display=swap");
+
+//Variables
+
+:root {
+  // Font sizes
+  --fs-900: 9.375rem; // 150px
+  --fs-800: 4.5rem; // 72px
+  --fs-700: 2.5rem; // 40px
+  --fs-600: 2rem; // 32px
+  --fs-500: 1.5rem; // 24px
+  --fs-400: 1rem; // 16px
+  --fs-300: 0.9375rem; //15px
+  --fs-200: 0.75rem; // 12px
+
+  // Other Vars
+  --max-width: 83rem; // 1328px
+  --fluid-width: 65.3125rem; // 1045px
+  --transition: all 0.3s linear;
+  --breakpoint-tablet: 48em;
+}
+
+body {
+  font-family: "Sora", sans-serif;
+}
+button {
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.section-center {
+  max-width: 30rem;
+  width: 90%;
+  margin-top: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-controls {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+
+  .form-control {
+    flex: 1 0 auto;
+    input {
+      width: 100%;
+      padding: 0.3rem;
+      border-radius: 6px;
+    }
+  }
+
+  button {
+    border-color: transparent;
+    display: grid;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    text-transform: capitalize;
+    border-radius: 6px;
+
+    &:hover {
+    }
+  }
+}
+
+.task-list {
+  margin-top: 2rem;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem;
+    background-color: #333;
+    margin-bottom: 0.3rem;
+    border-radius: 6px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 0.8rem;
+    transition: var(--transition);
+  }
+
+  .delete-btn {
+    margin-left: 0.6rem;
+  }
+}
