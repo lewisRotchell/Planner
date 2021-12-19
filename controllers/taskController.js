@@ -87,5 +87,31 @@ exports.updateTask = async (req, res) => {
 //delete task
 //Private
 exports.deleteTask = async (req, res) => {
-  res.send("delete task");
+  try {
+    const selectedTask = await task.findUnique({
+      where: {
+        id: +req.params.id,
+      },
+    });
+
+    if (!selectedTask) {
+      return res.status(404).json({ msg: "Task not found" });
+    }
+
+    //Check to see if task belongs to user
+    if (selectedTask.user_id !== req.user.id) {
+      return res.status(401).json({ msg: "Unauthorised" });
+    }
+
+    //Delete task
+    const deletedTask = await task.delete({
+      where: {
+        id: +req.params.id,
+      },
+    });
+    res.json({ msg: "deleted task" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server Error");
+  }
 };
