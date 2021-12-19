@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import AddTask from "../components/AddTask";
-import TaskList from "../components/TaskList";
+import AddTask from "../components/task/AddTask";
+import TaskList from "../components/task/TaskList";
 import NavBar from "../components/layout/NavBar";
 import { configuredDate } from "../utils/configureDate";
 
@@ -17,7 +17,6 @@ const Home = () => {
   return (
     <>
       <NavBar />
-
       <section className="section-center">
         <header className="task-list-header">
           <span className="my-day">My Day</span>

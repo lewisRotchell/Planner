@@ -200,3 +200,38 @@ button {
     margin-left: 0.6rem;
   }
 }
+
+//Sign up and register
+.flex-col {
+  flex-direction: column;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.mb-sm {
+  margin-bottom: 0.5rem;
+}
+
+.mb-md {
+  margin-bottom: 1rem;
+}
+.inner-form {
+  h2 {
+    text-align: center;
+  }
+}
+
+.form-question {
+  display: inline-block;
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+  button {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+  }
+  margin-bottom: 1rem;
+}
