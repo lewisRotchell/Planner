@@ -1,13 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const taskController = require("../controllers/taskController");
+const auth = require("../middleware/auth");
+
+const { taskSchema } = require("../middleware/taskValidations");
+const { validateTask } = require("../middleware/taskValidations");
 
 const { createTask, updateTask, getTasks, deleteTask } = taskController;
 
-router.post("/", createTask);
-router.get("/", getTasks);
-router.put("/:id", updateTask);
-router.delete("/:id", deleteTask);
+router
+  .route("/")
+  .post(auth, taskSchema, validateTask, createTask)
+  .get(auth, getTasks);
+router
+  .route("/:id")
+  .put(auth, taskSchema, validateTask, updateTask)
+  .delete(auth, deleteTask);
 
 //Get all tasks from an account
 // router.get("/:user_id", async (req, res) => {

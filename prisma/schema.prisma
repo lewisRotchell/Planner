@@ -13,6 +13,7 @@ datasource db {
 model User {
   @@map(name: "user")
   id Int @default(autoincrement()) @id 
+  email String @db.VarChar(255) @unique
   username String @db.VarChar(255) @unique
   posts Task[]
   password String @db.VarChar(255)
